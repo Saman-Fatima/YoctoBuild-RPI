@@ -8,6 +8,11 @@ on:
     - cron: '45 15 * * 4'
 
 jobs:
+  test1:
+      runs-on: self-hosted
+      steps:
+       - name: home directory
+         run: echo $HOME
   build:
     runs-on: self-hosted
     permissions:
