@@ -9,7 +9,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    steps:
+      - name: Build Yocto
+        run: |
+        cd $HOME/build/raspberrypi
+        source sources/poky/oe-init-build-env .
+        bitbake core-image-minimal
+      
+  sarif:
+    runs-on: self-hosted
     permissions:
       # required for all workflows
       security-events: write
@@ -28,3 +37,5 @@ jobs:
           # Optional category for the results
           # Used to differentiate multiple results for one commit
           category: my-analysis-tool
+      - name: Upload artifacts
+        run: ls $HOME/build/raspberrypi/build/tmp
