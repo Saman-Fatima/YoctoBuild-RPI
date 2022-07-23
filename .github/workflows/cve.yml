@@ -17,9 +17,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Build Yocto
-        run: |
-        cd $HOME/build/raspberrypi
-        ls
+        run: ls $HOME/build/raspberrypi
         #source sources/poky/oe-init-build-env .
         #bitbake core-image-minimal
       
