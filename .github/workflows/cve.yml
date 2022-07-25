@@ -13,13 +13,12 @@ jobs:
   #     steps:
   #      - name: home directory
   #        run: echo $HOME
-  build:
-    runs-on: self-hosted
-    steps:
-      - name: Build Yocto
-        run: source $HOME/build/raspberrypi/sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
-        #source sources/poky/oe-init-build-env .
-        #bitbake core-image-minimal
+  # build:
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: Build Yocto
+  #       run: source $HOME/build/raspberrypi/sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
+        
       
   sarif:
     runs-on: self-hosted
