@@ -18,7 +18,6 @@ jobs:
   #   steps:
   #     - name: Build Yocto
   #       run: source $HOME/build/raspberrypi/sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
-        
       
   sarif:
     runs-on: self-hosted
