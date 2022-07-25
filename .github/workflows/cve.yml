@@ -15,11 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3  
   
-  # build:
-  #   runs-on: self-hosted
-  #   steps:
-  #     - name: Build Yocto
-  #       run: source $HOME/build/raspberrypi/sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
+  Build:
+    runs-on: self-hosted
+    steps:
+      - name: Build Yocto
+        run: source sources/poky/oe-init-build-env ./build 
+          
   
 
 
