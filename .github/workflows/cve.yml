@@ -8,19 +8,21 @@ on:
     - cron: '45 15 * * 4'
 
 jobs:
-  # test1:
-  #     runs-on: self-hosted
-  #     steps:
-  #      - name: home directory
-  #        run: echo $HOME
+ 
+  Checkout-Repo:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  
+  
   # build:
   #   runs-on: self-hosted
   #   steps:
   #     - name: Build Yocto
   #       run: source $HOME/build/raspberrypi/sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
-      
+  
 
-      
+
   sarif:
     runs-on: self-hosted
     permissions:
@@ -31,8 +33,6 @@ jobs:
       contents: read
     steps:
       # This step checks out a copy of your repository.
-      - name: Checkout repository
-        uses: actions/checkout@v3
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
