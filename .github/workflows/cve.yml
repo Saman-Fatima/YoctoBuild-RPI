@@ -14,12 +14,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3  
-  
-  Build:
-    runs-on: self-hosted
-    steps:
-      - name: Build Yocto
+      - name: Build
         run: source sources/poky/oe-init-build-env ./build 
+  
+  # Build:
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: Build Yocto
+  #       run: source sources/poky/oe-init-build-env ./build 
+  #       # run: source sources/poky/oe-init-build-env ./build 
           
   
 
