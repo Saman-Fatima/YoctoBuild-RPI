@@ -15,7 +15,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3  
       - name: Build
-        run: source sources/poky/oe-init-build-env ./build 
+        run: ls
+        
   
   # Build:
   #   runs-on: self-hosted
