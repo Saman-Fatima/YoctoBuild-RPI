@@ -48,4 +48,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: build/tmp/deploy/images/qemux86-64/bzimage*
+          path: build/cve-output/bash.sarif
+          # path: build/tmp/deploy/images/qemux86-64/bzimage*
