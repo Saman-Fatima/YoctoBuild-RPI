@@ -10,7 +10,7 @@ on:
 jobs:
  
   Build:
-    runs-on: self-hosted
+    runs-on: [self-hosted,yocto-rpi]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
 
   
   Sarif:
-    runs-on: self-hosted
+    runs-on: [self-hosted,yocto-rpi]
     permissions:
       # required for all workflows
       security-events: write
@@ -39,7 +39,7 @@ jobs:
       #   run: ls $HOME/build/raspberrypi/build/tmp
   
   Artifacts:
-    runs-on: self-hosted
+    runs-on: [self-hosted,yocto-rpi]
     steps:
       - uses: actions/upload-artifact@v3
         with:
