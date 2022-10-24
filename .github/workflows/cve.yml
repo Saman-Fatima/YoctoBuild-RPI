@@ -21,7 +21,7 @@ jobs:
      - name: Clone submodules
        run: touch abc.txt && touch xyz.txt && pwd && ls
      - name: artifacts-
-     - uses: actions/upload-artifact@v3
+       uses: actions/upload-artifact@v3
        with:
           name: yocto-artifacts
           path: |
