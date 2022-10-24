@@ -45,5 +45,5 @@ jobs:
         with:
           name: yocto-artifacts
           path: |
-            abc.txt
-            xyz.txt
+            /home/runner/work/YoctoBuild-RPI/YoctoBuild-RPI/abc.txt
+            /home/runner/work/YoctoBuild-RPI/YoctoBuild-RPI/xyz.txt
