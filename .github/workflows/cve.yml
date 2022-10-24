@@ -2,46 +2,48 @@ name: "Upload SARIF"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
 # The scheduled workflow runs every Thursday at 15:45 UTC.
-on:
-  push:
-  schedule:
-    - cron: '45 15 * * 4'
-
+on: push
 jobs:
  
-  Build:
-    runs-on: [self-hosted,yocto-rpi]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Clone submodules
-        run: git submodule init && git submodule update
-      - name: Build
-        run: source sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
+#   Build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+#       - name: Clone submodules
+#         run: git submodule init && git submodule update
+#       - name: Build
+#         run: source sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
 
-  
-  Sarif:
-    runs-on: [self-hosted,yocto-rpi]
-    permissions:
-      # required for all workflows
-      security-events: write
-      # only required for workflows in private repositories
-      actions: read
-      contents: read
+    Build:
+    runs-on: ubuntu-latest
     steps:
-      # This step checks out a copy of your repository.
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: build/cve-output
-          category: my-analysis-tool
-      # - name: Upload artifacts
-      #   run: ls $HOME/build/raspberrypi/build/tmp
+      - name: Clone submodules
+        run: touch abc.txt && touch xyz.txt
+#   Sarif:
+#     runs-on: [self-hosted,yocto-rpi]
+#     permissions:
+#       # required for all workflows
+#       security-events: write
+#       # only required for workflows in private repositories
+#       actions: read
+#       contents: read
+#     steps:
+#       # This step checks out a copy of your repository.
+#       - name: Upload SARIF file
+#         uses: github/codeql-action/upload-sarif@v2
+#         with:
+#           sarif_file: build/cve-output
+#           category: my-analysis-tool
+#       # - name: Upload artifacts
+#       #   run: ls $HOME/build/raspberrypi/build/tmp
   
-  Artifacts:
-    runs-on: [self-hosted,yocto-rpi]
-    steps:
+    Artifacts:
+      runs-on: ubuntu-latest
+      steps:
       - uses: actions/upload-artifact@v3
         with:
           name: yocto-artifacts
-          path: $HOME/build/raspberrypi/build/tmp/work/deploy/images/qemux86-64/bzimage*
+          path: |
+            abc.txt
+            xyz.txt
