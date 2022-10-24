@@ -16,8 +16,8 @@ jobs:
 #         run: source sources/poky/oe-init-build-env ./build && bitbake core-image-minimal
 
     Build:
-    runs-on: ubuntu-latest
-    steps:
+     runs-on: ubuntu-latest
+     steps:
       - name: Clone submodules
         run: touch abc.txt && touch xyz.txt
 #   Sarif:
